@@ -3,6 +3,7 @@ Title: Perception-based Music Analysis
 Version: 0.1.2
 Author: Marc Vidal [aut, cre], 
         Marc Leman [aut]
+        Joren Six [aut]
 Maintainer: Marc Vidal <Marc.VidalBadia@UGent.be>
 Description: Analysis of music content and automatic extraction and description of musical features from Auditory Images, calculated from the acoustical signal.
 License: GPL (>= 2)
