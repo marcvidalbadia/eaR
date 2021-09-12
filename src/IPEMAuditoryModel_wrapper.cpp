@@ -90,12 +90,23 @@ NumericMatrix read_auditory_nerve_image(int inNumOfChannels){
 
     return activation_mat;
 }
-
+//' Multiplies per 2
+//'
+//' @param a First value
+//' @return Product of a per 2
 // [[Rcpp::export]]
 double times(double a){
     return a *2;
 }
 
+//' Calculates Auditory Nerve Images
+//'
+//' @param wav a sampled mono signal
+//' @param inNumOfChannels is the number of channels for decimation
+//' @param inFirstFreq frequency of first channel (in critical band units)
+//' @param inFreqDist the the frequency bandwidth of the "auditory filter"
+//' @param inSampleFrequency is the sample frequency of the input signal 
+//' @return Auditory Image 
 // [[Rcpp::export]]
 List ear_process(NumericVector wav,long inNumOfChannels, double inFirstFreq, double inFreqDist, double inSampleFrequency) {
 
