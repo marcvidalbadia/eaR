@@ -104,9 +104,9 @@ double times(double a){
 //' @param wav a sampled mono signal
 //' @param inNumOfChannels is the number of channels for decimation
 //' @param inFirstFreq frequency of first channel (in critical band units)
-//' @param inFreqDist the the frequency bandwidth of the "auditory filter"
+//' @param inFreqDist the frequency bandwidth of the "auditory filter"
 //' @param inSampleFrequency is the sample frequency of the input signal 
-//' @return Auditory Image 
+//' @return Auditory Image + additional files
 // [[Rcpp::export]]
 List ear_process(NumericVector wav,long inNumOfChannels, double inFirstFreq, double inFreqDist, double inSampleFrequency) {
 
