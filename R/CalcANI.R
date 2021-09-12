@@ -30,7 +30,7 @@ CalcANI <- function(inSignal, inSampleFreq, inDownsamplingFactor = 4,
         }
 
   OldPath <- getwd()
-  inAuditoryModelPath <- paste(.libPaths(),"/IPEM/Auditory_Model/", sep="")
+  inAuditoryModelPath <- paste(.libPaths(),"/eaR/Auditory_Model/", sep="")
   setwd(inAuditoryModelPath)
 
   tuneR::writeWave(inSignal, "input.wav", extensible = FALSE)
