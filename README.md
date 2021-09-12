@@ -1,4 +1,4 @@
-# **eaR**: An R package for perception-based music analysis
+# **eaR**: An R package for perception-based auditory analysis
 <!--- 
 [![Travis-CI Build Status](https://travis-ci.org/FredHasselman/casnet.svg?branch=master)](https://travis-ci.org/FredHasselman/casnet)
 -->
