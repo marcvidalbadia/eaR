@@ -36,8 +36,7 @@ InstallAuditoryModel("mac")
 -->
 
 ## A short glipmse to Auditory Images, the atom of **eaR**
-The underlaying model of **eaR**  is an adapted version of  [Van Immerseel and Martens (1992)](https://asa.scitation.org/doi/10.1121/1.402840) model of the auditory periphery. The auditory model -written in c-code- simulates the cochlear mechanical filtering using an array of overlapping band-pass filters yielding to
-a set of harmonic oscillators distributed in pitch-related frequency bands. The output of the model is the *primary image* or *auditory nerve image* (ANI), which represents the rate-code of neural discharge in a set of frequency bands.
+The **eaR**  package contains an adapted version of the auditory periphery model proposed by [Van Immerseel and Martens (1992)](https://asa.scitation.org/doi/10.1121/1.402840). The model simulates the cochlear mechanical filtering using an array of overlapping band-pass filters yielding to a set of harmonic oscillators distributed in pitch-related frequency bands. An audio signal is then represented as a *primary image* or *auditory nerve image* (ANI), which is k-dimensional vector of rate-code of neural discharges in k-frequency bands.
 
 The package was designed through the object class `ANI`, which at least must contain an image, the sample frequency of the image and a set of frequencies or periods used in their transformations. <!---  Unlike in IPEM Toolbox, the formulation of the class `ANI`  facilitates interaction in the use of the functions and prevent disorderly data. -->
 
@@ -54,7 +53,7 @@ PlotImage(PPs)
 You will get an image as follows,
 
 <div align="center">
- <img src="https://github.com/m-vidal/eaR/blob/main/PP.jpeg"></a><br>
+ <img src="https://github.com/m-vidal/eaR/blob/main/PP.jpeg"></a><br>el 
 </div>
 
 As described in the documentation, **eaR** Package is a tool for auditory information processing that inferences on sound patterns to simulate the perception of humans listening to music.
