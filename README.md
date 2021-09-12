@@ -20,9 +20,8 @@ After that, to download **eaR**, you can type in the **R** prompt:
 ```R
 install_github("m-vidal/eaR")
 ```
-You will get a message confirming that your **eaR** Package has been installed correctly.
-
 <!--- 
+You will get a message confirming that your **eaR** Package has been installed correctly.
 ___
 :exclamation: **Note for Mac users:**
 Running the Auditory Model makes it necessary to give permissions to execute the file `.../Auditory_Model/ASTMunix`. To install correctly all dependecies, once the package is download type in the **R** prompt:
