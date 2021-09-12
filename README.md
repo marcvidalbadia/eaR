@@ -45,7 +45,7 @@ To calculate the ANI of the *SchumannKurioseGeschichte* dataset, type:
 ```R
 library(eaR)
 data(SchumannKurioseGeschichte)
-ANIs <- CalcANI(SchumannKurioseGeschichte, 22050)
+ANIs <- CalcANI(SchumannKurioseGeschichte, 22050) #auditory nerve image
 PPs <- PeriodicityPitch(ANIs)
 PlotImage(PPs)
 ```
@@ -56,7 +56,7 @@ You will get an image as follows,
  <img src="https://github.com/m-vidal/eaR/blob/main/PP.jpeg"></a><br>el 
 </div>
 
-As described in the documentation, **eaR** Package is a tool for auditory information processing that inferences on sound patterns to simulate the perception of humans listening to music.
+which is a transformation of the auditory nerve image into a more coherent pitch representation.
 
 ## Version 0.2.1
 
