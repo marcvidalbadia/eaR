@@ -91,6 +91,15 @@ NumericMatrix read_auditory_nerve_image(int inNumOfChannels){
     return activation_mat;
 }
 
+//' Multiplies per 2
+//'
+//' @param a First value
+//' @return Product of a per 2
+// [[Rcpp::export]]
+double times(double a){
+    return a *2;
+}
+
 //' Calculates Auditory Nerve Images
 //'
 //' @param wav a sampled mono signal
