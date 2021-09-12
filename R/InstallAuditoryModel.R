@@ -7,7 +7,7 @@ InstallAuditoryModel <- function (inOs =  NULL)
       } else {
       os <- Sys.info()["sysname"]
       OldPath <- getwd()
-      inAuditoryModelPath <- paste(.libPaths(),"/IPEM/Auditory_Model/", sep="")
+      inAuditoryModelPath <- paste(.libPaths(),"/eaR/Auditory_Model/", sep="")
       setwd(inAuditoryModelPath)
 
       switch (inOs,
