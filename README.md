@@ -42,10 +42,11 @@ The package was designed through the object class `ANI`, which at least must con
 To calculate the ANI of the *SchumannKurioseGeschichte* dataset, type:
 
 ```R
-R> s <- SchumannKurioseGeschichte
-R> ANIs <- CalcANI(s, 22050)
-R> PPs <- PeriodicityPitch(ANIs)
-R> PlotImage(PPs)
+library(eaR)
+data(SchumannKurioseGeschichte)
+ANIs <- CalcANI(SchumannKurioseGeschichte, 22050)
+PPs <- PeriodicityPitch(ANIs)
+PlotImage(PPs)
 ```
 
 You will get an image as follows,
