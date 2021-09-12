@@ -22,7 +22,7 @@ install_github("m-vidal/eaR")
 ```
 You will get a message confirming that your **eaR** Package has been installed correctly.
 ___
-
+<!--- 
 :exclamation: **Note for Mac users:**
 Running the Auditory Model makes it necessary to give permissions to execute the file `.../Auditory_Model/ASTMunix`. To install correctly all dependecies, once the package is download type in the **R** prompt:
 
@@ -30,7 +30,7 @@ Running the Auditory Model makes it necessary to give permissions to execute the
 library(eaR)
 InstallAuditoryModel("mac")
 ```
-(See: Auditory_Model/Readme.txt)
+(See: Auditory_Model/Readme.txt)-->
 
 ## A short glipmse to Auditory Images, the atom of **eaR** Package
 Artificial Neural Networks are information processing systems whose structure and operating are inspired by the biological ones. Thus, Auditory Images are, in essence, the basis elements that represents features related to an acoustic signal, particurally, a set of harmonic oscillators distributed in pitch-related frequency bands.
