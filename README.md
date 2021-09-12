@@ -57,9 +57,9 @@ You will get an image as follows,
 
 As described in the documentation, **eaR** Package is a tool for auditory information processing that inferences on sound patterns to simulate the perception of humans listening to music.
 
-## Version 0.1.2 beta
+## Version 0.2.1
 
-This version includes the functions detailed in the following table. In addition, you can check whether the functions and documentation are available as it is a beta version. Note that the documentation is under revision yet.
+This version includes the functions detailed in the following table. In addition, you can check whether the functions and documentation are available. 
 
 Function | Status | Documentation | Migrated |
 | :---  |  :---:  |  :---:  |  :---:  
@@ -92,7 +92,7 @@ Function | Status | Documentation | Migrated |
 **eaR** uses a core application written in c-code which is fully executable in R environments. 
 Both the **eaR** Package code and the auditory model c-code are released under the GPL.
 
-`eaR` Package was build on **R** version 3.6.1.
+`eaR` Package was build on **R** 4.0.3 (2020-10-10) -- "Bunny-Wunnies Freak Out".
 
 [PPImage]: https://github.com/m-vidal/pv01/blob/master/PP.jpeg "Periodicity Pitch Image"
 
