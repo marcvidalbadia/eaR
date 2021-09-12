@@ -1,4 +1,4 @@
-# **eaR**: An R package for perception-based auditory analysis
+# **eaR**: An R package for perception-based aural analysis
 <!--- 
 [![Travis-CI Build Status](https://travis-ci.org/FredHasselman/casnet.svg?branch=master)](https://travis-ci.org/FredHasselman/casnet)
 -->
@@ -6,7 +6,7 @@
 [![CRAN status](https://www.r-pkg.org/badges/version/casnet)](https://cran.r-project.org/package=casnet)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 
-This is a version in development of **eaR** package, an open-source auditory **R** tool for perception-based auditory analysis. We provide an user-friendly and flexible tool oriented to facilitate the workflow of researchers interested in content analysis and automatic extraction of musical features. Routines are mainly designed according to the  auditory short term memory (ASTM) model developed by Marc Leman and previously implemented in [IPEM Toolbox](https://www.ugent.be/lw/kunstwetenschappen/ipem/en/research/projects/finishedprojects/ipem-toolbox.htm).  
+This is a version in development of **eaR** package, an open-source auditory **R** tool for perception-based aural analysis. We provide an user-friendly and flexible tool oriented to facilitate the workflow of researchers interested in content analysis and automatic extraction of musical features. Routines are mainly designed according to the  auditory short term memory (ASTM) model developed by Marc Leman and previously implemented in [IPEM Toolbox](https://www.ugent.be/lw/kunstwetenschappen/ipem/en/research/projects/finishedprojects/ipem-toolbox.htm).  
 
 
 ## Install the Package
