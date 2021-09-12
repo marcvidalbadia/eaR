@@ -48,7 +48,7 @@ PPs <- PeriodicityPitch(ANIs)
 PlotImage(PPs)
 ```
 
-You will get an image as follows,
+After running the code, you will get an image as follows,
 
 <div align="center">
  <img src="https://github.com/m-vidal/eaR/blob/main/PP.jpeg"></a><br>el 
