@@ -20,6 +20,7 @@
 ------------------------------------------------------------------------------*/
 
 #include "command.h"
+#include <R_ext/Print.h>
 
 cmnd_modes cmnd_mode=normal;
 int        submit_mode=0;
@@ -210,7 +211,7 @@ void get_string(srcds source,const char *question)
  if (source!=none) 
  {if (source==usual) source=cmnd_src;
   switch (source) 
-  {case inpt:   if (!submit_mode) printf("%s",question); 
+  {case inpt:   if (!submit_mode) Rprintf("%s",question); 
                 gets(answer); break;
    case ascii:  fgets(answer,maxstrlen,ascii_file); 
                 if (feof(ascii_file)) strcpy(answer,""); break;
@@ -317,7 +318,7 @@ int item_ok(int size,const char *keywords)
 void get_sequence(char *fname)
 {
  if (cmnd_mode!=normal)
- {printf("Invalid sequence definition request\n");
+ {REprintf("Invalid sequence definition request\n");
   cmnd_mode=normal;
   if (cmnd_src==ascii) fclose(ascii_file); cmnd_src=inpt;
  }
@@ -332,11 +333,11 @@ void get_sequence(char *fname)
 void put_sequence(char *fname)
 {
  if (cmnd_mode!=normal)
- {printf("Invalid sequence output request\n"); cmnd_mode=normal;}
+ {REprintf("Invalid sequence output request\n"); cmnd_mode=normal;}
  else 
  {fclose(seq_buffer); seq_buffer=fopen("seq_buffer","rb"); 
   strcpy(answer,fname);
-  if (feof(seq_buffer)) printf("No sequence defined\n"); 
+  if (feof(seq_buffer)) REprintf("No sequence defined\n"); 
   else if (first_item()) ascii_file=fopen(item,"wb"); 
   fgets(answer,maxstrlen,seq_buffer);
   while (!feof(seq_buffer))
@@ -351,13 +352,13 @@ void put_sequence(char *fname)
 void execute_sequence(int nseq)
 {
  if (cmnd_mode!=normal)
- {printf("Invalid sequence execution request\n"); 
+ {REprintf("Invalid sequence execution request\n"); 
   cmnd_mode=normal;
  } 
  else 
  {nr_of_seq=nseq; seq_cntr=1; fclose(seq_buffer);
   seq_buffer=fopen("seq_buffer","rb");
-  if (feof(seq_buffer)) printf("No sequence defined\n");
+  if (feof(seq_buffer)) REprintf("No sequence defined\n");
   else {cmnd_mode=exec_seq; cmnd_src=buffer;}
  }
 }
@@ -480,7 +481,7 @@ int open_readfile(const char *filename)
  readfile=fopen(filename,"rb");
 #if defined(_WIN32)
  if (readfile==NULL)
- {printf("error opening %s\n",filename); return 0;}
+ {REprintf("error opening %s\n",filename); return 0;}
 #else
  remove_uncompressed_file=0;
  if (readfile==NULL)
@@ -495,7 +496,7 @@ int open_readfile(const char *filename)
    readfile=fopen(tmp,"rb");
    remove_uncompressed_file=1;
   }
-  else {printf("error opening %s\n",filename); return 0;}
+  else {REprintf("error opening %s\n",filename); return 0;}
  }
 #endif /* defined(_WIN32) */
  read_ptr=0; return (!feof(readfile));

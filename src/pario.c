@@ -78,6 +78,7 @@ Exported types
 
 #include "command.h"
 #include "pario.h"
+#include <R_ext/Print.h>
 
 int  nr_of_par=22;      /* nr of parameters/frame    */
 int  nspect=20;         /* nr of spectral parameters */
@@ -189,7 +190,7 @@ void write_frame(int code,int n_per_line,parameters par)
 void init_pario()
 {text_line s;
 
- printf("----- Initialization of module PARIO -----\n");
+ Rprintf("----- Initialization of module PARIO -----\n");
  strcpy(s,"nr of parameters/frame   ");
  get_one_integer(inpt,s,&nr_of_par);
  strcpy(s,"nr of spectral parameters");

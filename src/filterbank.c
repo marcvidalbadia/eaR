@@ -21,6 +21,7 @@
 
 #include "audiprog.h"
 #include "filterbank.h"
+#include <R_ext/Print.h>
 
 #define  ncel     2          /* number of 2nd-order cells per BPF      */
 #define  f0       1.5        /* min. f (kHz) for which u(f)~ln(f)      */
@@ -217,12 +218,12 @@ void setup_filterbank()
  r=uc1+(nchan-1)*duc; r=umin1(r);
  if (r<=alpha*fssig) fsmp=fssig; else fsmp=2*fssig;
  Ne=round_int(Tse*fsmp); if (Ne>16) Ne=16; Nemask=Ne-1;
- printf("\nFilterbank data: fssig = %.3f kHz en fsmp = %.3f kHz\n",fssig,fsmp);
+ Rprintf("\nFilterbank data: fssig = %.3f kHz en fsmp = %.3f kHz\n",fssig,fsmp);
  
  /* open a file for the filter frequencies */ 
  theFilterFrequenciesFile = fopen("FilterFrequencies.txt","w");
  if (theFilterFrequenciesFile == NULL)
-	 printf("Error: Could not open output file FilterFrequencies.txt, but continuing program execution.");
+	 REprintf("Error: Could not open output file FilterFrequencies.txt, but continuing program execution.");
 
  for (p=1;p<=nchan;p++)
  {
@@ -232,9 +233,9 @@ void setup_filterbank()
    { indx[p]++; step[p]=2*step[p]; r=2*r; fsk=0.5*fsk; }
    stepmask[p]=step[p]-1;
    butterworth(fc[p],uc[p],fsk,&bpfd[p]);
-   printf("%3d: fc(kHz),fsk(kHz),uc(cbu),step = %7.3f%7.3f%7.3f%3ld%3ld\n",p,
+   Rprintf("%3d: fc(kHz),fsk(kHz),uc(cbu),step = %7.3f%7.3f%7.3f%3ld%3ld\n",p,
      fc[p],fsk,uc[p],indx[p],step[p]);
-   if (fc[p]>0.5*fsmp) printf("error: fc too high\n");
+   if (fc[p]>0.5*fsmp) REprintf("error: fc too high\n");
    
    /* write the filter frequencies */
    if (theFilterFrequenciesFile != NULL)
@@ -248,14 +249,14 @@ void setup_filterbank()
  write_filterbank();
  max_step=step[1];
 /*** JPM: 20/10/98: new implementation of channel selection ***********/
- printf("low_ch: ");
+ Rprintf("low_ch: ");
  for (k=0;k<=max_step-1;k++)
  {
    low_ch[k]=nchan+1;
    for (p=1;p<=nchan;p++) if (k%step[p]==0) low_ch[k]=fmin(low_ch[k],p);
-   printf("%i ",low_ch[k]);
+   Rprintf("%i ",low_ch[k]);
  }
- printf("\n");
+ Rprintf("\n");
 /**********************************************************************/
 }
 

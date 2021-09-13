@@ -10,17 +10,6 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// times
-double times(double a);
-RcppExport SEXP _eaR_times(SEXP aSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< double >::type a(aSEXP);
-    rcpp_result_gen = Rcpp::wrap(times(a));
-    return rcpp_result_gen;
-END_RCPP
-}
 // ear_process
 List ear_process(NumericVector wav, long inNumOfChannels, double inFirstFreq, double inFreqDist, double inSampleFrequency);
 RcppExport SEXP _eaR_ear_process(SEXP wavSEXP, SEXP inNumOfChannelsSEXP, SEXP inFirstFreqSEXP, SEXP inFreqDistSEXP, SEXP inSampleFrequencySEXP) {
@@ -38,7 +27,6 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_eaR_times", (DL_FUNC) &_eaR_times, 1},
     {"_eaR_ear_process", (DL_FUNC) &_eaR_ear_process, 5},
     {NULL, NULL, 0}
 };

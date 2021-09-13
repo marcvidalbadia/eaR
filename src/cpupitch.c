@@ -26,6 +26,7 @@
 #include "audiprog.h"
 #include "assert.h"
 #include "cpupitch.h"
+#include <R_ext/Print.h>
 
 #define  nextr      12   /* nr. of evp-extrema that can be stored */
 #define  min_dt      2   /* min. dt between extrema (in ms)       */
@@ -63,11 +64,11 @@ static long      scope;              /* nr. of frames to consider for T0,evid */
 void setup_pitch()
 {
  Tse2=0.5*Tse; min_dn=round_int(min_dt/Tse2); max_T0=round_int(max_pitch/Tse2);
- printf("%s%7.3f%4ld%4ld\n","Tse2,min_dn,max_T0 =",Tse2,min_dn,max_T0);
+ Rprintf("%s%7.3f%4ld%4ld\n","Tse2,min_dn,max_T0 =",Tse2,min_dn,max_T0);
  assert(max_T0<=200); /* R[m], m=0..max_T0 */
  Nwindow=round_int((double)Twindow/Tse2);
  shift=round_int(20.0/Tframe); scope=2*(shift)+1;
- printf("%s%4ld%4d\n","CPUPITCH: Scope and shift = ",scope,shift);
+ Rprintf("%s%4ld%4d\n","CPUPITCH: Scope and shift = ",scope,shift);
 }
 
 void init_pitch()

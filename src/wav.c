@@ -1,25 +1,24 @@
 
 #include "wav.h"
 #include <stdlib.h>
+#include <R_ext/Print.h>
 
 void read_wav_info(struct wav_info *w, FILE *fp) {
     // To be read from *fp
     uint32_t data_size;
     uint32_t byte_rate;
     uint16_t block_align;
-    
+
     uint8_t x[4];          /* buffer for reading from *fp */
-    
+
     // Start reading from beginning of *fp
     if(fseek(fp,0,SEEK_SET)) {
-        fprintf(stderr,"Error with fseek in read_wav_info in wav.c\n");
-        exit(EXIT_FAILURE);
+        REprintf("Error with fseek in read_wav_info in wav.c\n");
     }
     // First four bytes of any RIFF file should be the ASCII codes for "RIFF"
     fread(x,1,4,fp);
     if((x[0] != 0x52) || (x[1] != 0x49) || (x[2] != 0x46) || (x[3] != 0x46)) {
-        fprintf(stderr,"Error: First 4 bytes indicate file is not a RIFF/WAVE file!\n");
-        exit(EXIT_FAILURE);
+        REprintf("Error: First 4 bytes indicate file is not a RIFF/WAVE file!\n");
     }
     // Next four bytes give the RIFF chunk size RCS in Little Endian format
     fread(x,1,4,fp);
@@ -29,10 +28,9 @@ void read_wav_info(struct wav_info *w, FILE *fp) {
     // Next four bytes should be the ASCII codes for "WAVE"
     fread(x,1,4,fp);
     if((x[0] != 0x57) || (x[1] != 0x41) || (x[2] != 0x56) || (x[3] != 0x45)) {
-        fprintf(stderr,"Error: Bytes 9-12 indicate file is not a RIFF/WAVE file!\n");
-        exit(EXIT_FAILURE);
+        REprintf("Error: Bytes 9-12 indicate file is not a RIFF/WAVE file!\n");
     }
-    
+
     // Look for the "fmt " subchunk of this RIFF file...
     while(1) {
         fread(x,1,4,fp);
@@ -44,17 +42,15 @@ void read_wav_info(struct wav_info *w, FILE *fp) {
             fread(x,1,4,fp);
             uint32_t y = x[0] | (x[1] << 8) | (x[2] << 16) | (x[3] << 24);
             if(y != 16) {
-                fprintf(stderr,"Error: File does not appear to be a PCM RIFF/WAVE file.\n");
-                fprintf(stderr,"fmt  subchunk doesn't have size 16.\n");
-                exit(EXIT_FAILURE);
+                REprintf("Error: File does not appear to be a PCM RIFF/WAVE file.\n");
+                REprintf("fmt  subchunk doesn't have size 16.\n");
             }
             // Next two bytes should give the integer 1 (for PCM format) in Little Endian
             fread(x,1,4,fp);
             uint16_t wFormatTag = x[0] | (x[1] << 8);
             if(wFormatTag != 1) {
-                fprintf(stderr,"Error: File does not appear to be a PCM RIFF/WAVE file.\n");
-                fprintf(stderr,"wFormatTag is not equal to 1.\n");
-                exit(EXIT_FAILURE);
+                REprintf("Error: File does not appear to be a PCM RIFF/WAVE file.\n");
+                REprintf("wFormatTag is not equal to 1.\n");
             }
             // The rest of the fmt  subchunk should give num_channels (as a two-byte
             // integer in L.E.), sample_rate (four-byte L.E.), byte_rate (four-byte L.E.),
@@ -77,11 +73,10 @@ void read_wav_info(struct wav_info *w, FILE *fp) {
         chunk_size = x[0] | (x[1] << 8) | (x[2] << 16) | (x[3] << 24);
         // Skip over this subchunk and keep looking for "fmt " subchunk
         if(fseek(fp,chunk_size,SEEK_CUR)) {
-            fprintf(stderr,"Error: Couldn't find fmt  subchunk in file.\n");
-            exit(EXIT_FAILURE);
+            REprintf("Error: Couldn't find fmt  subchunk in file.\n");
         }
     }
-    
+
     // Now look for the "data" subchunk of this RIFF file...
     while(1) {
         fread(x,1,4,fp);
@@ -100,30 +95,26 @@ void read_wav_info(struct wav_info *w, FILE *fp) {
         chunk_size = x[0] | (x[1] << 8) | (x[2] << 16) | (x[3] << 24);
         // Skip over this subchunk and keep looking for "data" subchunk
         if(fseek(fp,chunk_size,SEEK_CUR)) {
-            fprintf(stderr,"Error: Couldn't find data subchunk in file.\n");
-            exit(EXIT_FAILURE);
+            REprintf("Error: Couldn't find data subchunk in file.\n");
         }
     }
-    
+
     // Determine num_samples
     w->num_samples = data_size/((w->num_channels)*(w->bits_per_sample)/8);
-    
+
     // Do some error checking:
     if(block_align != (w->num_channels)*(w->bits_per_sample)/8) {
-        fprintf(stderr,"Error: block_align, num_channels, bits_per_sample mismatch in WAVE header.\n");
-        fprintf(stderr,"block_align=%i\n",block_align);
-        fprintf(stderr,"num_channels=%i\n",(int) w->num_channels);
-        fprintf(stderr,"bits_per_sample=%i\n",(int) w->bits_per_sample);
-        exit(EXIT_FAILURE);
+        REprintf("Error: block_align, num_channels, bits_per_sample mismatch in WAVE header.\n");
+        REprintf("block_align=%i\n",block_align);
+        REprintf("num_channels=%i\n",(int) w->num_channels);
+        REprintf("bits_per_sample=%i\n",(int) w->bits_per_sample);
     }
     if(byte_rate != (w->sample_rate)*(w->num_channels)*(w->bits_per_sample)/8) {
-        fprintf(stderr,"Error: byte_rate, sample_rate, num_channels mismatch in WAVE header.\n");
-        fprintf(stderr,"byte_rate=%i\n",byte_rate);
-        fprintf(stderr,"sample_rate=%i\n",(int) w->sample_rate);
-        fprintf(stderr,"num_channels=%i\n",(int) w->num_channels);
-        exit(EXIT_FAILURE);
+        REprintf("Error: byte_rate, sample_rate, num_channels mismatch in WAVE header.\n");
+        REprintf("byte_rate=%i\n",byte_rate);
+        REprintf("sample_rate=%i\n",(int) w->sample_rate);
+        REprintf("num_channels=%i\n",(int) w->num_channels);
     }
-    
 }
 
 void write_wav_hdr(const struct wav_info *w, FILE *fp) {
@@ -132,7 +123,7 @@ void write_wav_hdr(const struct wav_info *w, FILE *fp) {
     uint32_t RCS = data_size+36;
     uint32_t byte_rate = (w->sample_rate)*(w->num_channels)*(w->bits_per_sample)/8;
     uint16_t block_align = (w->num_channels)*(w->bits_per_sample)/8;
-    
+
     // Prepare a standard 44 byte WAVE header from the info in w
     uint8_t h[44];
     // Bytes 1-4 are the ASCII codes for the four characters "RIFF"
@@ -154,7 +145,7 @@ void write_wav_hdr(const struct wav_info *w, FILE *fp) {
     h[14]=0x74;
     h[15]=0x20;
     // Bytes 17-20 are the integer 16 (the size of the "fmt " subchunk
-    // in the RIFF header we are writing) as a four-byte integer in 
+    // in the RIFF header we are writing) as a four-byte integer in
     // Little Endian format
     h[16]=0x10;
     h[17]=0x00;
@@ -181,24 +172,23 @@ void write_wav_hdr(const struct wav_info *w, FILE *fp) {
     h[39]=0x61;
     // Bytes 41-44 are data_size as a four-byte L.E.
     for(int i=0; i<4; i++) h[40+i] = (data_size >> (8*i)) & 0xFF;
-    
+
     // Write the header to the beginning of *fp
     if(fseek(fp,0,SEEK_SET)) {
-        fprintf(stderr,"Error with fseek in write_wav_header in wav.c\n");
-        exit(EXIT_FAILURE);
+        REprintf("Error with fseek in write_wav_header in wav.c\n");
     }
     fwrite(h,1,44,fp);
 }
 
 void print_wav_info(const struct wav_info *w) {
-    printf("Number of channels: %i\n",(int) w->num_channels);
-    printf("Bits per sample: %i\n",(int) w->bits_per_sample);
-    printf("Sample rate: %i Hz\n",(int) w->sample_rate);
-    printf("Total samples per channel: %i\n", (int) w->num_samples);
+    Rprintf("Number of channels: %i\n",(int) w->num_channels);
+    Rprintf("Bits per sample: %i\n",(int) w->bits_per_sample);
+    Rprintf("Sample rate: %i Hz\n",(int) w->sample_rate);
+    Rprintf("Total samples per channel: %i\n", (int) w->num_samples);
     int duration = w->num_samples/w->sample_rate;
     int r = w->num_samples % w->sample_rate;
-    if(r==0) printf("Duration: %i s\n", duration);
-    else printf("Duration: %i + %i/%i s\n",duration,r,(int) w->sample_rate);
+    if(r==0) Rprintf("Duration: %i s\n", duration);
+    else Rprintf("Duration: %i + %i/%i s\n",duration,r,(int) w->sample_rate);
 }
 
 void write_wav_sample(const struct wav_info* w, FILE* fp, const int_fast32_t* sample) {

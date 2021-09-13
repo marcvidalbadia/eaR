@@ -28,6 +28,7 @@
 #include "decimation.h"
 #include "filterbank.h"
 #include "hcmbank.h"
+#include <R_ext/Print.h>
 
 /* KT 19990525
 #include "ecebank.h"
@@ -92,7 +93,7 @@ long specify_parameters(long inNumOfChannels, double inFirstFreq, double inFreqD
 	/* KT adapted */
 	if (inNumOfChannels > max_nchan)
 	{
-		printf("ERROR:\nToo many channels! Max. = 40");
+		Rprintf("ERROR:\nToo many channels! Max. = 40");
 		return -1;
 	}
 	nchan = inNumOfChannels;	// given, checked with max_nchan
@@ -138,7 +139,7 @@ long startup_audiprog(int bytes,int *nspect,int *npar,
  {
 	 setup_modules(); 
 	 delay=Tdecim+Tmodel; 
-	 printf("%s%7.3f%7.3f%7.3f%4d\n","Td,Tm,delay,Ne =",Tdecim,Tmodel,delay,Ne);
+	 Rprintf("%s%7.3f%7.3f%7.3f%4d\n","Td,Tm,delay,Ne =",Tdecim,Tmodel,delay,Ne);
 	 *nspect=nchan; 
 	 *npar=nchan+Nerl+3;
  }
@@ -163,7 +164,7 @@ void init_factor(text_line filename)
    close_readfile(); /* !!!!! */
  }
  else factor=1.0;
- printf("factor = %f\n",factor);
+ Rprintf("factor = %f\n",factor);
 }
 
 int init_analysis(text_line filename,const char* inOutputFileName)

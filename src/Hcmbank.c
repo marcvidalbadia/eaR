@@ -21,6 +21,7 @@
 
 #include "audiprog.h"
 #include "hcmbank.h"
+#include <R_ext/Print.h>
 
 #define  tau1      8.0       /* smallest time constant (ms) of LPF     */
 #define  tau2     40.0       /* largest time constant (ms) of LPF      */
@@ -221,7 +222,7 @@ void init_hcmbank(const char* inOutputFileName)
  /* Initialization for the envelope output file */	/* KT 19990525 */
  if (!HCMBank_OpenEnvelopeFile(inOutputFileName))
  {
-	printf("\nERROR: the output file \"%s\" could not be opened for writing...\n", inOutputFileName);
+	REprintf("\nERROR: the output file \"%s\" could not be opened for writing...\n", inOutputFileName);
  }
 }
 

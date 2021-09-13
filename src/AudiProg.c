@@ -29,6 +29,7 @@
 #include "filenames.h"
 #include "audiprog.h"
 #include "audimod.h"
+#include <R_ext/Print.h>
 
 static text_line infile,outfile;
 static int bytes;
@@ -89,16 +90,16 @@ long analyse_signal(const char* inOutputFile)
 
  if (!init_analysis(infile,inOutputFile)) return -1;
 
- printf("Analysing %s\n",infile); 
+ Rprintf("Analysing %s\n",infile); 
  if (!open_writefile(outfile)) 
- {printf("\nerror opening %s\n",outfile); return -1;}
+ {REprintf("\nerror opening %s\n",outfile); return -1;}
  do 
  {vuv=one_frame(&last,frame);
   write_frame(vuv,nspect,frame);
  } 
  while (!last);
  close_writefile(); /* readfile is closed in one_frame !!!! */
- printf("nsamp: %d\n",n);
+ Rprintf("nsamp: %d\n",n);
  finish_analysis();	/* KT 19990525 */
  
  return 0;
@@ -117,7 +118,7 @@ void file_information(long inSoundFileFormat)
  get_one_integer(usual,s,&w);
 */
  w = inSoundFileFormat;
- if (w != 2) { printf("KT MUST CHECK NON-WAV FORMAT !!!!!!!!!!!!"); } // TBI
+ if (w != 2) { REprintf("KT MUST CHECK NON-WAV FORMAT !!!!!!!!!!!!"); } // TBI
  bytes=(w==1);
  strcpy(filename_prefix,"");
  if (w>1) set_sigioread_format(w);

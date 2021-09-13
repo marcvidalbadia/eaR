@@ -26,6 +26,7 @@
 #include "audiprog.h"
 #include "cpupitch.h"
 #include "cpu.h"
+#include <R_ext/Print.h>
 
 #define max_nbuf 32
 
@@ -41,11 +42,11 @@ void setup_cpu()
 {
  Nerlbuf=round_int(Terl*fsmp);
  Terlbuf=(double)Nerlbuf/fsmp;
- printf("%s%4ld\n","Nerlbuf =",Nerlbuf);
+ Rprintf("%s%4ld\n","Nerlbuf =",Nerlbuf);
  nbuf=1+round_int(Tframe/Terlbuf); 
  setup_pitch();
- if (nbuf>max_nbuf) printf("ERROR: Nerl too large for CPU\n");
- else printf("%s%4ld%4d\n","nbuf,Nerl =",nbuf,Nerl);
+ if (nbuf>max_nbuf) REprintf("ERROR: Nerl too large for CPU\n");
+ else Rprintf("%s%4ld%4d\n","nbuf,Nerl =",nbuf,Nerl);
 }
 
 void init_cpu()

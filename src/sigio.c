@@ -55,6 +55,7 @@
 
 #include "command.h"
 #include "sigio.h"
+#include <R_ext/Print.h>
 
 #define  mu  100
 
@@ -150,13 +151,13 @@ void read_header()
  fread(&c2,1,2,readfile); /* 7 */
  fread(&c4,1,4,readfile); /* 8 */
 
-printf("sampling frequency (hexa): %d %d %d %d\n",c4[0],c4[1],c4[2],c4[3]);
+Rprintf("sampling frequency (hexa): %d %d %d %d\n",c4[0],c4[1],c4[2],c4[3]);
 
  fread(&c4,1,4,readfile); /* 9 */
  fread(&c2,1,2,readfile); /* 10 */
  fread(&c2,1,2,readfile); /* 11 */
 
-printf("sample width: %d\n",c2[0]);
+Rprintf("sample width: %d\n",c2[0]);
 
  switch (c2[0])
  {case 8: unsig=1; size=1; break;
@@ -214,7 +215,7 @@ double one_wave_sample(int *last)
           *last=0; return x;
           break;
  }
- printf("-- Error in SIGIO (one_wave_sample), please check\n"); return 0;
+ REprintf("-- Error in SIGIO (one_wave_sample), please check\n"); return 0;
 }
 
 double one_binary_sample(int *last)
@@ -244,7 +245,7 @@ double one_binary_sample(int *last)
            break;
   }
  }
- printf("-- Error in SIGIO (one_binary_sample), please check\n"); return 0;
+ REprintf("-- Error in SIGIO (one_binary_sample), please check\n"); return 0;
 }
 
 double new_sample(int bytes,int *last)
