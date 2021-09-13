@@ -30,7 +30,7 @@ void writeWavFile(int sample_rate,const char* file_name , NumericVector wav){
 
     //int_fast32_t M = 0x7FFF;
 
-    int_fast32_t sample[w.num_channels];
+    int_fast32_t sample[1];
     for(int i = 0; i < n; i++){
         sample[0] = wav[i];
         write_wav_sample(&w,fp,sample);
