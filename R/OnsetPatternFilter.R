@@ -1,5 +1,5 @@
-OnsetPatternFilter <- function(inOnsetPattern, inSampleFreq)
-{
+OnsetPatternFilter <- function(inOnsetPattern, 
+                               inSampleFreq) {
   # The parameters
   theFrameWidth <- 0.03          # frame within which a certain number of onsets must occur (s)
   theMinNumOnsetsFactor <- 9/40  # minimum fraction of channels that have an onset within the frame
