@@ -1,5 +1,5 @@
-CalcNoteFrequency <- function (inNote, inOctave = 4)
-{
+CalcNoteFrequency <- function (inNote, 
+                               inOctave = 4) {
   if (substr(inNote, 2:2, 2:2) == "#") {
     NoteName <- c('C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B')
     } else {
