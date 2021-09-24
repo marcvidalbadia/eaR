@@ -1,6 +1,4 @@
-PlotImage <- function (inAIObj)
-{
-
+PlotImage <- function (inAIObj) {
   if (class(inAIObj) != "AI") {
     stop("Object must be of class AI.")
   }
