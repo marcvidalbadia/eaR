@@ -67,12 +67,13 @@ ContextualityIndex <- function(inANIObj,
   coefplot <- cowplot::plot_grid(g1, g2, g3, label_x = 0.2, nrow = 3)
 
     Contextuality.Index <- list(outToneCenters, outChords,  outContextuality1,
-                              outContextuality2, outContextuality3)
+                              outContextuality2, outContextuality3,coefplot)
     class(Contextuality.Index) <- "AI"
     names(Contextuality.Index) <- c("ChordsImage",
                                     "ToneCentersImage",
                                     "LocalInspection",
                                     "GlobalInspection",
-                                    "Comparison")
-    return(list(Contextuality.Index, coefplot))
+                                    "Comparison",
+                                    "PlotContextualityIndex")
+    return(list(Contextuality.Index))
   }
