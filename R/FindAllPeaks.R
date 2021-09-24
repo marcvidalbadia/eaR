@@ -1,5 +1,5 @@
-FindAllPeaks <- function (inSignal, inFlatPreference ="center")
-{
+FindAllPeaks <- function (inSignal, 
+                          inFlatPreference ="center") {
   N <- length(inSignal)
   Diff <- diff(inSignal)
 
