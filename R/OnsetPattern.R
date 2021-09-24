@@ -1,5 +1,5 @@
-OnsetPattern <- function (inSignal, inSampleFreq)
-{
+OnsetPattern <- function (inSignal, 
+                          inSampleFreq) {
   # Parameters
   Dissipation <- 0.4           # dissipation for the neuron dynamics
   Nadj <- 6                    # number of extra adjecent channels that get same input
