@@ -1,5 +1,5 @@
-OnsetPeakDetection1Channel <- function(inSignal, inSampleFreq)
-{
+OnsetPeakDetection1Channel <- function(inSignal, 
+                                       inSampleFreq) {
   #Based on the function Peak4 in IPEMOnsetPeakDetection1Channel (see IPEM Toolbox)
   WindowSize1InSeconds <- 0.07
   WindowSize2InSeconds <- 0.5
