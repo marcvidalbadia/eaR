@@ -1,5 +1,4 @@
-CalcOnsetsFromANI <- function (inANIObj)
-{
+CalcOnsetsFromANI <- function (inANIObj) {
   inANI <- inANIObj[[1]]
   inANIFreq <- inANIObj[[2]]
 
