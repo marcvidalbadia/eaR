@@ -23,7 +23,8 @@ to determine two echoed images with a different rate of decay using \code{\link{
 \item{ToneCentersImage}{global integration of \code{inPeriodicityPitch} into tone center image.}
 \item{LocalInspection}{correspondence between chord taken at snapshot position and running chord image.}
 \item{GlobalInspection}{correspondence between chord taken at snapshot position and running tone center image}
-\item{Comparison}{correspondence between running chord image and running tone center image.}}
+\item{Comparison}{correspondence between running chord image and running tone center image.}
+\item{PlotContextualityIndex}{the plot of the three indices.}}
 \details{Sample frequency of output signals is the same as \code{inSampleFreq}.}
 \references{Leman, M. (2000). An auditory model of the role of short-term memory in probe-tone ratings. \emph{Music Perception}, 17(4), pp.481-509.}
 \author{Marc Vidal (\code{R} version). Based on the original code from \pkg{IPEM} Toolbox.}
