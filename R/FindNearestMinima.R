@@ -1,5 +1,5 @@
-FindNearestMinima <- function (inSignal, inPeakIndex)
-{
+FindNearestMinima <- function (inSignal, 
+                               inPeakIndex) {
   N <- length(inSignal)
 
   thePreviousValue <- inSignal[inPeakIndex]
