@@ -1,5 +1,5 @@
-OnsetPeakDetection <- function (inSignal, inSampleFreq)
-{
+OnsetPeakDetection <- function (inSignal, 
+                                inSampleFreq) {
   outOnsetResults <- 0*inSignal
   outOnsetResultsFreq <- inSampleFreq
 
