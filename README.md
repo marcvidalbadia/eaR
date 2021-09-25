@@ -53,7 +53,7 @@ After running the code, you will get an image as follows,
 <div align="center">
  <img src="https://github.com/m-vidal/eaR/blob/main/PP.jpeg"></a><br>
 </div>
-which is a transformation of the auditory nerve image into a more coherent pitch representation.
+which is a transformation of the auditory nerve image into a more coherent periodicity pitch representation.
 
 ## Version 0.2.1
 
