@@ -35,10 +35,10 @@ The rest of the functions have an accessory character, and can eventually be use
 
 Leman, M. (2000). An auditory model of the role of short-term memory in probe-tone ratings. \emph{Music Perception}, 17(4), pp. 481-509.
 
-Leman, M. (2000). \href{https://pdfs.semanticscholar.org/b1df/e03230e1e0e0d38275bd4200255a8532a45d.pdf}{Visualization and calculation of the roughness of acoustical musical signals using the synchronization index model (SIM)}. \emph{Proceedings of the COST G-6 Conference on Digital Audio Effects (DAFX-00)}, Verona, Italy.
+Leman, M. (2000). Visualization and calculation of the roughness of acoustical musical signals using the synchronization index model {(SIM)}. \emph{Proceedings of the COST G-6 Conference on Digital Audio Effects (DAFX-00)}, Verona, Italy.
 
 Leman, M., Lesaffre, M., Tanghe, K. (2014).
-Toolbox for perception-based music analysis. Matlab toolbox version 1.02 (beta). Ghent University.
+Toolbox for perception-based music analysis. Matlab toolbox version 1.02 (beta). Manual, Ghent University.
 
 %Ligges, U., Krey, S., Mersmann, O., Schnackenberg, S. (2018). \href{https://CRAN.R-project.org/package=tuneR}{tuneR: Analysis of Music and Speech}. R package version 1.3.3.
 
@@ -46,9 +46,8 @@ Toolbox for perception-based music analysis. Matlab toolbox version 1.02 (beta).
 
 %Sueur, J. (2018).  \emph{Sound analysis and synthesis with R}. Heidelberg, Germany: Springer.
 
-Van Immerseel, L. Van and Martens, J. (1992). \href{https://asa.scitation.org/doi/abs/10.1121/1.402840?journalCode=jas}{Pitch andvoiced/unvoiced determination with an auditory model}. \emph{The Journal of the Acoustical Society of America}, vol. 91, pp.3511-3526.
+Van Immerseel, L. Van and Martens, J. (1992). Pitch andvoiced/unvoiced determination with an auditory model. \emph{The Journal of the Acoustical Society of America}, vol. 91, pp.3511-3526.
 }
-
 \keyword{ package }
 % \seealso{ }
 

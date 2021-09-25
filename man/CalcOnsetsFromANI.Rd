@@ -9,7 +9,7 @@
   \item{OnsetSignal}{A signal having a non-zero value for an onset, and zero otherwise. The higher the non-zero value, the more our system is convinced that the onset is really an onset.}
   \item{OnsetFreq}{sample frequency of the result (same as \code{inSampleFreq}).}}
 \author{Marc Vidal (\code{R} version). Based on the original code from \pkg{IPEM} Toolbox.}
-\examples{data(SchumannKurioseGeschichte)
+\examples{\dontrun{data(SchumannKurioseGeschichte)
 s <- SchumannKurioseGeschichte
 ANIs <- CalcANI(s, 22050)
-CalcOnsetsFromANI(ANIs)}
+CalcOnsetsFromANI(ANIs)}}

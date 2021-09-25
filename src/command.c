@@ -1,19 +1,19 @@
 /* command.c */
 
 /*------------------------------------------------------------------------------
-    IPEM Toolbox - Toolbox for perception-based music analysis 
-    Copyright (C) 2005 Ghent University 
-    
+    IPEM Toolbox - Toolbox for perception-based music analysis
+    Copyright (C) 2005 Ghent University
+
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 2 of the License, or
     (at your option) any later version.
-    
+
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
-    
+
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
@@ -83,10 +83,10 @@ int round_int(double a)
 
 int strindex(const char *s,const char *t)
 /******************************************************************************
-  The strindex function returns the starting index of the first instance 
+  The strindex function returns the starting index of the first instance
   of the second parameter within the first parameter. If the second parameter
-  does not exist in the first parameter, strindex returns a -1. This function 
-  is more or less the same as the Pascal function INDEX, with that difference 
+  does not exist in the first parameter, strindex returns a -1. This function
+  is more or less the same as the Pascal function INDEX, with that difference
   that INDEX returns a zero if the second parameter does not exist in the
   first one, whereas strindex returns a -1.
 ******************************************************************************/
@@ -101,8 +101,8 @@ int strindex(const char *s,const char *t)
 
 void substr(char *resstring,const char *origstring,int start,int length)
 /************************************************************************
-  More or less the same as the Pascal function SUBSTR. Keep in mind 
-  that the first character of the source string is at position 0. Thus, 
+  More or less the same as the Pascal function SUBSTR. Keep in mind
+  that the first character of the source string is at position 0. Thus,
   the Pascal statement string:=SUBSTR(string,1,2) is translated as
   substr(string,string,0,2).
 ************************************************************************/
@@ -208,45 +208,45 @@ close_writefile
 
 void get_string(srcds source,const char *question)
 {
- if (source!=none) 
+ if (source!=none)
  {if (source==usual) source=cmnd_src;
-  switch (source) 
-  {case inpt:   if (!submit_mode) Rprintf("%s",question); 
-                gets(answer); break;
-   case ascii:  fgets(answer,maxstrlen,ascii_file); 
+  switch (source)
+  {case inpt:   if (!submit_mode) Rprintf("%s",question);
+                fgets(answer, maxstrlen, stdin );; break;
+   case ascii:  fgets(answer,maxstrlen,stdin);
                 if (feof(ascii_file)) strcpy(answer,""); break;
-   case buffer: fgets(answer,maxstrlen,seq_buffer); 
+   case buffer: fgets(answer,maxstrlen,seq_buffer);
                 if (feof(seq_buffer)) {strcpy(answer,""); fclose(seq_buffer);}
                 break;
    default:     strcpy(answer,""); break;
-  }   
+  }
   if (cmnd_mode==read_seq) fprintf(seq_buffer,"%s\n",answer);
  }
 }
- 
+
 void get_cmnd(const char *question)
 {
  if (cmnd_mode==read_seq) /* sequence definition */
- {if (!((cmnd_src==ascii) && feof(ascii_file))) 
+ {if (!((cmnd_src==ascii) && feof(ascii_file)))
   {strcpy(answer,"seq : "); strcat(answer,question);
    get_string(usual,answer);
-  } 
-  if (cmnd_src!=ascii) {if (strlen(answer)==0) cmnd_mode=normal;} 
+  }
+  if (cmnd_src!=ascii) {if (strlen(answer)==0) cmnd_mode=normal;}
   else if (feof(ascii_file)) {fclose(ascii_file); cmnd_mode=normal;}
  }
  if (cmnd_mode==exec_seq) /* sequence execution */
  {if (!feof(seq_buffer)) get_string(usual," ");
   else if (seq_cntr==nr_of_seq) cmnd_mode=normal;
-       else 
-       {seq_cntr++; 
-        fclose(seq_buffer); seq_buffer=fopen("seq_buffer","rb"); 
+       else
+       {seq_cntr++;
+        fclose(seq_buffer); seq_buffer=fopen("seq_buffer","rb");
         get_string(usual," ");
        }
  }
  if (cmnd_mode==normal) /* interactive mode */
- {cmnd_src=inpt; get_string(usual,question);} 
+ {cmnd_src=inpt; get_string(usual,question);}
 }
- 
+
 int first_item()
 {int  nchar,ptr,ptr2;
  char htab='\t';
@@ -254,13 +254,13 @@ int first_item()
  char carr='\r'; /* added by HV, Nov 4 1997 */
  int  comma,blanc;
 
- nchar=strlen(answer); strcpy(item,""); 
- if (nchar!=0)  
- {ptr= -1; 
+ nchar=strlen(answer); strcpy(item,"");
+ if (nchar!=0)
+ {ptr= -1;
   do
   {ptr++;
    comma=(answer[ptr]==',');
-   blanc=((answer[ptr]==' ') || (answer[ptr]==htab) || (answer[ptr]==nlin) 
+   blanc=((answer[ptr]==' ') || (answer[ptr]==htab) || (answer[ptr]==nlin)
           || (answer[ptr]==carr));
   }
   while ((ptr!=nchar) && blanc);
@@ -271,7 +271,7 @@ int first_item()
    do
    {ptr2++;
     comma=(answer[ptr2]==',');
-    blanc=((answer[ptr2]==' ') || (answer[ptr2]==htab) || (answer[ptr2]==nlin) 
+    blanc=((answer[ptr2]==' ') || (answer[ptr2]==htab) || (answer[ptr2]==nlin)
            || (answer[ptr2]==carr));
    }
    while ((ptr2!=nchar) && !comma && !blanc);
@@ -279,12 +279,12 @@ int first_item()
    else substr(item,answer,ptr,ptr2-ptr+1);
   }
 
-  if (ptr2==nchar) strcpy(answer,""); 
+  if (ptr2==nchar) strcpy(answer,"");
   substr(answer,answer,ptr2+1,nchar-ptr2);
  }
  if (strlen(item)!=0) return 1; else return 0;
 }
- 
+
 void uppercase(char *string)
 {int n;
 
@@ -314,7 +314,7 @@ int item_ok(int size,const char *keywords)
   substr(item,keywords,pos,size); return 1;
  }
 }
- 
+
 void get_sequence(char *fname)
 {
  if (cmnd_mode!=normal)
@@ -322,47 +322,47 @@ void get_sequence(char *fname)
   cmnd_mode=normal;
   if (cmnd_src==ascii) fclose(ascii_file); cmnd_src=inpt;
  }
- else 
- {cmnd_mode=read_seq; fclose(seq_buffer); 
-  seq_buffer=fopen("seq_buffer","wb"); 
+ else
+ {cmnd_mode=read_seq; fclose(seq_buffer);
+  seq_buffer=fopen("seq_buffer","wb");
   if (strlen(fname)==0) cmnd_src=inpt;
-  else {cmnd_src=ascii; ascii_file=fopen(fname,"rb");} 
- }   
+  else {cmnd_src=ascii; ascii_file=fopen(fname,"rb");}
+ }
 }
- 
+
 void put_sequence(char *fname)
 {
  if (cmnd_mode!=normal)
  {REprintf("Invalid sequence output request\n"); cmnd_mode=normal;}
- else 
- {fclose(seq_buffer); seq_buffer=fopen("seq_buffer","rb"); 
+ else
+ {fclose(seq_buffer); seq_buffer=fopen("seq_buffer","rb");
   strcpy(answer,fname);
-  if (feof(seq_buffer)) REprintf("No sequence defined\n"); 
-  else if (first_item()) ascii_file=fopen(item,"wb"); 
+  if (feof(seq_buffer)) REprintf("No sequence defined\n");
+  else if (first_item()) ascii_file=fopen(item,"wb");
   fgets(answer,maxstrlen,seq_buffer);
   while (!feof(seq_buffer))
   {if (strlen(item)!=0) fprintf(ascii_file,"%s\n",answer);
    else fprintf(out_file,"%s\n",answer);
    fgets(answer,maxstrlen,seq_buffer);
   }
- } 
- if (strlen(item)!=0) fclose(ascii_file); else fprintf(out_file,"\n"); 
+ }
+ if (strlen(item)!=0) fclose(ascii_file); else fprintf(out_file,"\n");
 }
- 
+
 void execute_sequence(int nseq)
 {
  if (cmnd_mode!=normal)
- {REprintf("Invalid sequence execution request\n"); 
+ {REprintf("Invalid sequence execution request\n");
   cmnd_mode=normal;
- } 
- else 
+ }
+ else
  {nr_of_seq=nseq; seq_cntr=1; fclose(seq_buffer);
   seq_buffer=fopen("seq_buffer","rb");
   if (feof(seq_buffer)) REprintf("No sequence defined\n");
   else {cmnd_mode=exec_seq; cmnd_src=buffer;}
  }
 }
- 
+
 int get_integers(srcds io,const char *question,
                     int *i1,int *i2,int *i3,int *i4)
 {text_line question1;
@@ -370,20 +370,20 @@ int get_integers(srcds io,const char *question,
  strcpy(question1,question);
  sprintf(item,"%6d%6d%6d%6d",*i1,*i2,*i3,*i4);
  strcat(question1," ("); strcat(question1,item); strcat(question1," ) = ");
- get_string(io,question1); 
- if (cmnd_mode!=read_seq) 
+ get_string(io,question1);
+ if (cmnd_mode!=read_seq)
  {if (strlen(answer)==0) return 0;
-  else 
-  {if (first_item()) 
+  else
+  {if (first_item())
     if ((item[0]=='-') || (item[0]=='+') || (item[0]>='0' && item[0]<='9'))
      *i1=atoi(item);
-   if (first_item()) 
+   if (first_item())
     if ((item[0]=='-') || (item[0]=='+') || (item[0]>='0' && item[0]<='9'))
      *i2=atoi(item);
-   if (first_item()) 
+   if (first_item())
     if ((item[0]=='-') || (item[0]=='+') || (item[0]>='0' && item[0]<='9'))
      *i3=atoi(item);
-   if (first_item()) 
+   if (first_item())
     if ((item[0]=='-') || (item[0]=='+') || (item[0]>='0' && item[0]<='9'))
      *i4=atoi(item);
    return 1;
@@ -391,7 +391,7 @@ int get_integers(srcds io,const char *question,
  }
  return 1;
 }
- 
+
 int get_reals(srcds io,const char *question,
                  double *r1,double *r2,double *r3,double *r4)
 {text_line question1;
@@ -400,10 +400,10 @@ int get_reals(srcds io,const char *question,
  sprintf(item,"%6.3g%6.3g%6.3g%6.3g",*r1,*r2,*r3,*r4);
  strcat(question1," ("); strcat(question1,item); strcat(question1," ) = ");
  get_string(io,question1);
- if (cmnd_mode!=read_seq) 
+ if (cmnd_mode!=read_seq)
  {if (strlen(answer)==0) return 0;
   else
-  {if (first_item()) 
+  {if (first_item())
     if ((item[0]=='-') || (item[0]=='+') || (item[0]=='.') ||
      (item[0]>='0' && item[0]<='9')) *r1=atof(item);
    if (first_item())
@@ -420,7 +420,7 @@ int get_reals(srcds io,const char *question,
  }
  return 1;
 }
- 
+
 int get_one_name(srcds io,const char *question, char *fname)
 {text_line tmp,question1;
 
@@ -467,7 +467,7 @@ int get_one_real(srcds io,const char *question,double *r)
  {if (strlen(answer)==0) return 0;
   else if (first_item())
    if ((item[0]=='-') || (item[0]=='+') || (item[0]=='.') ||
-    (item[0]>='0' && item[0]<='9')) *r=atof(item); 
+    (item[0]>='0' && item[0]<='9')) *r=atof(item);
  }
  return 1;
 }
@@ -486,8 +486,8 @@ int open_readfile(const char *filename)
  remove_uncompressed_file=0;
  if (readfile==NULL)
  {strcpy(tmp,filename); strcat(tmp,".Z");
-  if (readfile==fopen(tmp,"rb")) 
-  {fclose(readfile); 
+  if (readfile==fopen(tmp,"rb"))
+  {fclose(readfile);
    strcpy(tmp,"cp "); strcat(tmp,filename); strcat(tmp,".Z rfxxx.xxx.Z");
    system(tmp);
    strcpy(tmp,"uncompress rfxxx.xxx.Z");
@@ -505,7 +505,7 @@ int open_readfile(const char *filename)
 int open_writefile(const char *filename)
 {
  writefile=fopen(filename,"wb");
- write_ptr=0; 
+ write_ptr=0;
  if (writefile!=NULL) return 1; else return 0;
 }
 

@@ -10,5 +10,5 @@
   \item{PeakIndices}{the indices within the input signal where the peaks are found.}
   \item{Importances}{a value between 0 and 1 showing the "importance" of a peak.}}
 \author{Marc Vidal (\code{R} version). Based on the original code from \pkg{IPEM} Toolbox.}
-\examples{data(SchumannKurioseGeschichte)
-OPD1C <- OnsetPeakDetection1Channel(SchumannKurioseGeschichte, 22050)}
+\examples{\dontrun{data(SchumannKurioseGeschichte)
+OPD1C <- OnsetPeakDetection1Channel(SchumannKurioseGeschichte, 22050)}}

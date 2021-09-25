@@ -42,7 +42,7 @@ ContextualityIndex <- function(inANIObj,
   }
 
   time <- NULL; coef1 <- NULL; coef2 <- NULL; coef3 <- NULL
-  plotcoefs <-data.frame(1:length(outContextuality1)/100, outContextuality1,
+  plotcoefs <- data.frame(1:length(outContextuality1)/100, outContextuality1,
                          outContextuality2, outContextuality3)
   colnames(plotcoefs) <- c("time","coef1","coef2","coef3")
 

@@ -9,7 +9,7 @@
 \value{
  \item{OnsetPattern}{a matrix of size  \emph{n} x \emph{m} where an element is 1 if an onset was detected.}
  \item{OnsetPatternFreq}{sample frequency of result (same as \code{inSampleFreq}).}}
-\references{Smith, L. (1996). \href{http://papers.nips.cc/paper/1024-onset-based-sound-segmentation.pdf}{Onset-based Sound Segmentation}. \emph{Advances in neural information processing systems}, vol.9, pp.729-735.}
+\references{Smith, L. (1996). Onset-based Sound Segmentation. \emph{Advances in neural information processing systems}, vol.9, pp.729-735.}
 \author{Marc Vidal (\code{R} version). Based on the original code from \pkg{IPEM} Toolbox.}
 \examples{data(SchumannKurioseGeschichte)
 s <- SchumannKurioseGeschichte

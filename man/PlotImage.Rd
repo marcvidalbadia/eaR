@@ -8,8 +8,8 @@
 \details{This function uses package \pkg{ggplot2} for representations.}
 \value{'done'}
 \author{Marc Vidal.}
-\examples{data(SchumannKurioseGeschichte)
+\examples{\dontrun{data(SchumannKurioseGeschichte)
 s <- SchumannKurioseGeschichte
 ANIs <- CalcANI(s, 22050)
 PPs <- PeriodicityPitch(ANIs)
-PI <- PlotImage(PPs)}
+PI <- PlotImage(PPs)}}

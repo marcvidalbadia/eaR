@@ -32,7 +32,7 @@ where \eqn{\delta} is the frame lag, \eqn{\tau_1,\ldots,\tau_l} is a sequence of
   \item{Periods}{analyzed periods (in s).}
   \item{BPANI}{bandpass filtered auditory nerve images (at the original sample frequency).}}
 \author{Marc Vidal (\code{R} version). Based on the original code from \pkg{IPEM} Toolbox.}
-\examples{probe <- ShepardTone(293.66, 1, indBLevel = -20)
+\examples{\dontrun{probe <- ShepardTone(293.66, 1, indBLevel = -20)
 s <- c(SchumannKurioseGeschichte, numeric(2205), probe)
 ANIs <- CalcANI(s, 22050)
-PPs <- PeriodicityPitch(ANIs)}
+PPs <- PeriodicityPitch(ANIs)}}

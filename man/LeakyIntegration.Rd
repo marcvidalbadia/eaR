@@ -17,8 +17,8 @@ where \eqn{\tau} denotes the echo in seconds and the columns of both matrices ar
   \item{inEnlargement}{time (in s) to enlarge the input signal. If -1, \code{2*inHalfDecayTime} is used. If empty or not specified, 0 is used by default.}}
 \details{Sample frequency of \code{outLeakyIntegration} is the same as \code{inSampleFreq}.}
 \value{An object of \code{matrix} class representing the leaky integration of the input signal.}
-\references{Leman, M. (2000). \href{https://mp.ucpress.edu/content/17/4/481}{An auditory model of the role of short-term memory in probe-tone ratings}. Music Perception, 17(4), 481-509.}
+\references{Leman, M. (2000). An auditory model of the role of short-term memory in probe-tone ratings. Music Perception, 17(4), 481-509.}
 \author{Marc Vidal (\code{R} version). Based on the original code from \pkg{IPEM} Toolbox.}
-\examples{s <- c(SchumannKurioseGeschichte)
+\examples{\dontrun{s <- c(SchumannKurioseGeschichte)
 ANIs <- CalcANI(s, 22050)
-LIs <- LeakyIntegration (ANIs$AuditoryNerveImage, ANIs$ANIFreq, 0.1, -1)}
+LIs <- LeakyIntegration (ANIs$AuditoryNerveImage, ANIs$ANIFreq, 0.1, -1)}}

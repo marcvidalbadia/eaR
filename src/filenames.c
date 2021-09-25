@@ -81,7 +81,8 @@ void define_filenameformat(srcds io)
  
 void type1_name(char *res,int nr)
 {
- sprintf(res,"%s%4.4d",filename_prefix,nr);
+ /*sprintf(res,"%s%4.4d", filename_prefix,nr);*/
+ snprintf(res, sizeof(res), "%s%4.4d", filename_prefix,nr);
 }
  
 void type2_name(char *res,int w,int s,int v)
@@ -94,7 +95,7 @@ void type3_name(char *res,int nr1,int nr2)
 
  type1_name(name,nr2);
 #if defined(_WIN32)
- sprintf(res,"%s%4.4ld%s%s",subdir_prefix,nr1,"\\",name);
+ sprintf(res,"%s%4.4d%s%s",subdir_prefix,nr1,"\\",name);
 #else
  sprintf(res,"%s%4.4d%s%s",subdir_prefix,nr1,"/",name);
 #endif /* defined(_WIN32) */

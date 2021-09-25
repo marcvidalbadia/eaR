@@ -22,7 +22,6 @@ LeakyIntegration <- function(inSignal,
   outLeakyIntegration[,1] <- Ae[,1]
   for (i in 2:ncol(Ae)) {
     outLeakyIntegration[,i] <- (outLeakyIntegration[,i-1]*integrator) + Ae[,i]
-    print( outLeakyIntegration[,i])
   }
 
   return(outLeakyIntegration)

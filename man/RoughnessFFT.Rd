@@ -38,7 +38,7 @@ which is obtained by an integration of the energy over all frequencies, as well 
 \references{
 Javel, E., McGee, J., Horst, J., & Farley, G. (1988). Temporal mechanisms in auditory stimulus coding. In G. Edelman, W. Gall, & W. Cowan (Eds.), \emph{Auditory function: neurobiological bases of hearing}. New York: John Wiley and Sons.
 
-Leman, M. (2000). \href{https://pdfs.semanticscholar.org/b1df/e03230e1e0e0d38275bd4200255a8532a45d.pdf}{Visualization and calculation of the roughness of acoustical musical signals using the synchronization index model (SIM)}. In: \emph{Proceedings of the COST G-6 Conference on Digital Audio Effects (DAFX-00)}, Verona, Italy.}
+Leman, M. (2000). Visualization and calculation of the roughness of acoustical musical signals using the synchronization index model {(SIM)}. In: \emph{Proceedings of the COST G-6 Conference on Digital Audio Effects (DAFX-00)}, Verona, Italy.}
 \author{Marc Vidal (\code{R} version). Based on the original code from \pkg{IPEM} Toolbox.}
 \examples{data(SchumannKurioseGeschichte)
 s <- SchumannKurioseGeschichte

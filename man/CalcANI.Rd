@@ -21,9 +21,9 @@ auditory model is downsampled (use 1 for no downsampling). If empty or not speci
   \item{ANIFreq}{sample frequency of ANI (in Hz).}
   \item{ANIFilterFreqs}{center frequencies used by the auditory model (in Hz).}}
 \author{Marc Vidal (\code{R} version). Based on the original code from \pkg{IPEM} Toolbox.}
-\references{Van Immerseel, L. Van and Martens, J. (1992). \href{https://asa.scitation.org/doi/abs/10.1121/1.402840?journalCode=jas}{Pitch and voiced/unvoiced determination with an auditory model}. \emph{The Journal of the Acoustical Society of America}, vol. 91, pp.3511-3526.
+\references{Van Immerseel, L. Van and Martens, J. (1992).Pitch and voiced/unvoiced determination with an auditory model. \emph{The Journal of the Acoustical Society of America}, vol. 91, pp.3511-3526.
 
-Ligges, U., Krey, S., Mersmann, O., Schnackenberg, S. (2018). \href{https://CRAN.R-project.org/package=tuneR}{tuneR: Analysis of Music and Speech}. R package version 1.3.3.}
+Ligges, U., Krey, S., Mersmann, O., Schnackenberg, S. (2018). tuneR: Analysis of Music and Speech. R package version 1.3.3. URL: https://CRAN.R-project.org/package=tuneR}
 \examples{data(SchumannKurioseGeschichte)
 s <- SchumannKurioseGeschichte
 ANIs <- CalcANI(s, 22050)}
