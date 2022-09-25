@@ -61,7 +61,7 @@ The package was designed through the object class `ANI`, which at least must con
 
 Function | Status | Documentation | Migrated |
 | :---  |  :---:  |  :---:  |  :---:  
-`AdaptLevel` |:ballot_box_with_check:|:heavy_check_mark:|Yes|
+`AdaptLevel` |:ballot_box_with_check:|:ballot_box_with_check:|Yes|
 `as.Wave` |--|--|No|
 `BellShape` |:ballot_box_with_check:|--|Yes|
 `CalcANI` |:ballot_box_with_check:|:ballot_box_with_check:|Yes|
