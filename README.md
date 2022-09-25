@@ -65,7 +65,7 @@ Function | Status | Documentation | Migrated |
 `as.Wave` |--|--|No|
 `BellShape` |:ballot_box_with_check:|--|Yes|
 `CalcANI` |:ballot_box_with_check:|:ballot_box_with_check:|Yes|
-`CalcNoteFrequency` |:heavy_check_mark:|:ballot_box_with_check:|No|
+`CalcNoteFrequency` |:ballot_box_with_check:|:ballot_box_with_check:|No|
 `CalcOnsetsFromANI` |:red_circle:|--|--|
 `CalcProfile` |--|--|No|
 `CalcRMS` |:ballot_box_with_check:|--|Yes|
