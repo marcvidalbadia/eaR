@@ -9,7 +9,9 @@ NewSampleFreq <- 22050
 NZeros <- ceiling(0.020/(1/NewSampleFreq))
 theZeros <- array(0L, NZeros)
 
-if (class(inSignal) == "character") inSignal <- tuneR::readWave(inSignal);
+#if (class(inSignal) == "character") inSignal <- tuneR::readWave(inSignal);
+if (inherits(inSignal, "character"))
+  inSignal <- tuneR::readWave(inSignal);
 
 if (inSampleFreq != 22050) {
   inSignal <- seewave::resamp(inSignal, inSampleFreq, NewSampleFreq,

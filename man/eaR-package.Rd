@@ -23,7 +23,7 @@ Transformation of acoustic signals to auditory nerve images (ANI) can be realize
 
 Further transformations from auditory nerve images can be taken using \code{\link{PeriodicityPitch}} and \code{\link{LeakyIntegration}} functions. Tonal inferences on periodicity pitch images can be performed with \code{\link{ContextualityIndex}}. This function calculates the goodness of fit of tone patterns (\emph{probe}) for a given tonal context.
 
-Additionally, \code{\link{CalcOnsetsFromANI}} finds onsets of sound events and \code{\link{RoughnessFFT}} analyses the roughness (or sensory dissonance) of a sound. Generally, plots of the analysis can be accessed on the generated object.
+Additionally, \code{\link{RoughnessFFT}} analyses the roughness (or sensory dissonance) of a sound. Generally, plots of the analysis can be accessed on the generated object.
 
 The rest of the functions have an accessory character, and can eventually be used in certain circumstances in combination to the main ones.\cr
 
