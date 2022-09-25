@@ -66,7 +66,7 @@ Function | Status | Documentation | Migrated |
 `BellShape` |:ballot_box_with_check:|--|Yes|
 `CalcANI` |:ballot_box_with_check:|:ballot_box_with_check:|Yes|
 `CalcNoteFrequency` |:ballot_box_with_check:|:ballot_box_with_check:|No|
-`CalcOnsetsFromANI` |:red_circle:|--|--|
+`CalcOnsetsFromANI` |:red_circle:|--|Yes|
 `CalcProfile` |--|--|No|
 `CalcRMS` |:ballot_box_with_check:|--|Yes|
 `Clip` |:ballot_box_with_check:|--|Yes |
@@ -84,6 +84,8 @@ Function | Status | Documentation | Migrated |
 `RoughnessFFT` |:ballot_box_with_check:|:ballot_box_with_check:|Yes|
 `ShepardTone` |:ballot_box_with_check:|:ballot_box_with_check:|Yes|
 `ShepardToneComplex` |:ballot_box_with_check:|:ballot_box_with_check:|Yes|
+
+:red_circle: (Deprecated) | :ballot_box_with_check: (Working)
 
 ## More details
 **eaR** uses a core application written in c-code which is fully executable in R environments. 
