@@ -64,26 +64,26 @@ Function | Status | Documentation | Migrated |
 `AdaptLevel` |:ballot_box_with_check:|:heavy_check_mark:|Yes|
 `as.Wave` |--|--|No|
 `BellShape` |:ballot_box_with_check:|--|Yes|
-`CalcANI` |:ballot_box_with_check:|:heavy_check_mark:|Yes|
-`CalcNoteFrequency` |:heavy_check_mark:|:heavy_check_mark:|No|
-`CalcOnsetsFromANI` |:red_circle:|--|Yes|
+`CalcANI` |:ballot_box_with_check:|:ballot_box_with_check:|Yes|
+`CalcNoteFrequency` |:heavy_check_mark:|:ballot_box_with_check:|No|
+`CalcOnsetsFromANI` |:red_circle:|--|--|
 `CalcProfile` |--|--|No|
-`CalcRMS` |:heavy_check_mark:|--|Yes|
-`Clip` |:heavy_check_mark: |--|Yes |
-`ContextualityIndex` |:heavy_check_mark: |:heavy_check_mark:|Yes|
-`CreateMask` |:heavy_check_mark: |--|Yes|
-`FindAllPeaks` |:heavy_check_mark:|--|Yes|
-`FindNearestMinima` |:heavy_check_mark:|--|Yes|
-`LeakyIntegration` |:heavy_check_mark: |:heavy_check_mark:|Yes|
+`CalcRMS` |:ballot_box_with_check:|--|Yes|
+`Clip` |:ballot_box_with_check:|--|Yes |
+`ContextualityIndex` |:ballot_box_with_check:|:ballot_box_with_check:|Yes|
+`CreateMask` |:ballot_box_with_check:|--|Yes|
+`FindAllPeaks` |:ballot_box_with_check:|--|Yes|
+`FindNearestMinima` |:ballot_box_with_check:|--|Yes|
+`LeakyIntegration` |:ballot_box_with_check:|:ballot_box_with_check:|Yes|
 `OnsetPattern` |:red_circle:|--|Yes|
 `OnsetPatternFilter` |:red_circle:|--|Yes|
 `OnsetPeakDetection` |:red_circle:|--|Yes|
-`OnsetPeakDetection1Channel` |:red_circle:|:heavy_check_mark:|Yes|
-`PeriodicityPitch` |:heavy_check_mark: |:heavy_check_mark:|Yes|
-`PlotImage` |:heavy_check_mark:|:heavy_check_mark:|No|
-`RoughnessFFT` |:heavy_check_mark:|:heavy_check_mark:|Yes|
-`ShepardTone` |:heavy_check_mark:|:heavy_check_mark:|Yes|
-`ShepardToneComplex` |:heavy_check_mark:|:heavy_check_mark:|Yes|
+`OnsetPeakDetection1Channel` |:red_circle:|--|Yes|
+`PeriodicityPitch` |:ballot_box_with_check:|:ballot_box_with_check:|Yes|
+`PlotImage` |:ballot_box_with_check:|:ballot_box_with_check:|No|
+`RoughnessFFT` |:ballot_box_with_check:|:ballot_box_with_check:|Yes|
+`ShepardTone` |:ballot_box_with_check:|:ballot_box_with_check:|Yes|
+`ShepardToneComplex` |:ballot_box_with_check:|:ballot_box_with_check:|Yes|
 
 ## More details
 **eaR** uses a core application written in c-code which is fully executable in R environments. 
