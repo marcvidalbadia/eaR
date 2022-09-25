@@ -61,12 +61,12 @@ The package was designed through the object class `ANI`, which at least must con
 
 Function | Status | Documentation | Migrated |
 | :---  |  :---:  |  :---:  |  :---:  
-`AdaptLevel` |:heavy_check_mark:|:heavy_check_mark:|Yes|
+`AdaptLevel` |:ballot_box_with_check:|:heavy_check_mark:|Yes|
 `as.Wave` |--|--|No|
-`BellShape` |:heavy_check_mark:|--|Yes|
-`CalcANI` |:heavy_check_mark:|:heavy_check_mark:|Yes|
+`BellShape` |:ballot_box_with_check:|--|Yes|
+`CalcANI` |:ballot_box_with_check:|:heavy_check_mark:|Yes|
 `CalcNoteFrequency` |:heavy_check_mark:|:heavy_check_mark:|No|
-`CalcOnsetsFromANI` |:heavy_check_mark:|--|Yes|
+`CalcOnsetsFromANI` |:red_circle:|--|Yes|
 `CalcProfile` |--|--|No|
 `CalcRMS` |:heavy_check_mark:|--|Yes|
 `Clip` |:heavy_check_mark: |--|Yes |
@@ -74,12 +74,11 @@ Function | Status | Documentation | Migrated |
 `CreateMask` |:heavy_check_mark: |--|Yes|
 `FindAllPeaks` |:heavy_check_mark:|--|Yes|
 `FindNearestMinima` |:heavy_check_mark:|--|Yes|
-`InstallAuditoryModel` |:heavy_check_mark:|:heavy_check_mark:|No|
 `LeakyIntegration` |:heavy_check_mark: |:heavy_check_mark:|Yes|
-`OnsetPattern` |:heavy_check_mark:|--|Yes|
-`OnsetPatternFilter` |:heavy_check_mark:|--|Yes|
-`OnsetPeakDetection` |:heavy_check_mark:|--|Yes|
-`OnsetPeakDetection1Channel` |:heavy_check_mark:|:heavy_check_mark:|Yes|
+`OnsetPattern` |:red_circle:|--|Yes|
+`OnsetPatternFilter` |:red_circle:|--|Yes|
+`OnsetPeakDetection` |:red_circle:|--|Yes|
+`OnsetPeakDetection1Channel` |:red_circle:|:heavy_check_mark:|Yes|
 `PeriodicityPitch` |:heavy_check_mark: |:heavy_check_mark:|Yes|
 `PlotImage` |:heavy_check_mark:|:heavy_check_mark:|No|
 `RoughnessFFT` |:heavy_check_mark:|:heavy_check_mark:|Yes|
