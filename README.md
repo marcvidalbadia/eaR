@@ -36,7 +36,7 @@ InstallAuditoryModel("mac")
 (See: Auditory_Model/Readme.txt)
 -->
 
-## A short glipmse to auditory nerive images, the atom of **eaR**
+## A short glipmse to auditory nerve images, the atom of **eaR**
 The **eaR**  package contains an adapted version of the auditory periphery model proposed by [Van Immerseel and Martens (1992)](https://asa.scitation.org/doi/10.1121/1.402840). The model simulates the cochlear mechanical filtering using an array of overlapping band-pass. An audio signal can be represented as a *auditory nerve image* (ANI), which is multivariate vector of neural discharges in different frequency bands.
 
 To calculate the ANI and periodicity pitch image (PPI) of the *SchumannKurioseGeschichte* dataset, type:
