@@ -89,10 +89,7 @@ Function | Status | Documentation | Migrated |
 :red_circle: (Deprecated) | :ballot_box_with_check: (Working)
 
 ## More details
-**eaR** uses a core application written in c-code which is fully executable in R environments. 
 Both the **eaR** Package code and the auditory model c-code are released under the GPL.
-
-`eaR` Package was build on **R** 4.0.3 (2020-10-10) -- "Bunny-Wunnies Freak Out".
 
 [PPImage]: https://github.com/m-vidal/pv01/blob/master/PP.jpeg "Periodicity Pitch Image"
 
