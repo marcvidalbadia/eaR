@@ -88,8 +88,5 @@ Function | Status | Documentation | Migrated |
 
 :red_circle: (Deprecated) | :ballot_box_with_check: (Working)
 
-## More details
-Both the **eaR** Package code and the auditory model c-code are released under the GPL.
-
 [PPImage]: https://github.com/m-vidal/pv01/blob/master/PP.jpeg "Periodicity Pitch Image"
 
