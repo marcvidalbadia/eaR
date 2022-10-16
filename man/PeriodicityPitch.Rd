@@ -5,16 +5,8 @@
 
 Let \eqn{F_{j}} denote a second-order Butterworth filter with a cutoff frequency of 80 Hz. Then, the filtered channels are %\eqn{\tilde{A}_{j}=A_j-F_{80}[A_j],}
 \eqn{\tilde{A}_{j}=F_{j}[A_j],} where \eqn{A_j\ (j=1,\ldots,m)} denote the channels of the ANI matrix. %\eqn{\mathbf{A}=(A_{ij})_{n\times m}}  with associated sample frequency \eqn{f_{A}}.
-The lower limit of 80 Hz accounts for the fact that for smaller frequencies, the pitch becomes more a sensation of textural properties. The higher limit of 1250 Hz is related to the limits of neural synchronization. Beyond about 1250 Hz, the neurons are no longer able to follow the exact period of the signal very accurately, and periodicity pitch becomes unreliable. Only the lowest frequency can be changed by \code{inLowFrequency}.
-
-Secondly, a frame-based convolution analysis and a coincidence mechanism is conducted by the summation of the convolution results over all channels. For frame width \eqn{w}, each column of the periocicity pitch image is obtained by
-%\deqn{r_{j}^{k}(t)=\int_{t}^{t+F W} \tilde{A}^k_{j}(\tau)\tilde{A}^k_{j}(\tau+\delta) \mathrm{d} \tau}
-\deqn{P_{i}=\sum_{j=1}^{m}\tilde{A}_{i_{k}j}\ast\tilde{A}_{(i+\delta)_{k}j}\ (\forall i=\tau_{1},\ldots,\tau_{z};k=1,\ldots,w),}
-where \eqn{\delta} is the frame lag, \eqn{\tau_1,\ldots,\tau_l} is a sequence of equidistant time steps defining the time instants of the PPI (a matrix of size \eqn{w \times z}).}
-
-%\eqn{\delta \in[0,FW]}, \eqn{\tau_1,\ldots,} denotes the periods of the periodicity analysis and \eqn{k\in\lfloor1,\mathsf{int}(t/FS)\rfloor}.}
-
-%A coincidence mechanism is fulfilled by the summation of the auto-correlation results over all channels, so that \deqn{P_{\cdot,k}=\sum_{j=1}^{m}r_{j}^{k}(t)^\top} where \eqn{\tilde{A}} are pitch image.}
+The lower limit of 80 Hz accounts for the fact that for smaller frequencies, the pitch becomes more a sensation of textural properties. The higher limit of 1250 Hz is related to the limits of neural synchronization. Beyond about 1250 Hz, the neurons are no longer able to follow the exact period of the signal very accurately, and periodicity pitch becomes unreliable. Only the lowest frequency can be changed by \code{inLowFrequency}. Secondly, a frame-based convolution analysis and a coincidence mechanism is conducted by the summation of the convolution results over all channels. 
+ }
 \usage{PeriodicityPitch(inANIObj, inLowFrequency = 80,
                  inFrameWidth = 0.064, inFrameStepSize = 0.010)}
 \arguments{
