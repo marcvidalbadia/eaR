@@ -4,10 +4,10 @@
 \description{An echo can be defined as a leaky integration with a given half decay time. At each moment in time, a leaky integrator adds the incoming signal value to an attenuated version of the previously calculated value to form the newly calculated value. The half decay time specifies the time it takes for an impulse signal to reach half its original value.
 
 This function takes an image as input and gives the leaky integrated image as output. Let us suppose that we have a periodicity pitch image \eqn{P=(P_{ij})_{n\times m}}. With a null factor of enlargement, the new echoed image is calculated as
-\deqn{\tilde{P}_{1j}=P_{1j},}
-\deqn{\tilde{P}_{2j}=P_{2j}+\tilde{P}_{1j}\cdot2^{-\frac{1}{\tau}},}
-\deqn{\tilde{P}_{ij}=P_{ij}+\tilde{P}_{i-1,j}\cdot2^{-\frac{1}{\tau}} \quad \forall i>2,}
-where \eqn{\tau} denotes the echo in seconds and the columns of both matrices are indexed with the subscript \eqn{j}. Leaky integration had been used in Leman (2000) to construct the pitch images of an echoic memory.}
+\deqn{\tilde{P}_{i1}=P_{i1},}
+\deqn{\tilde{P}_{i2}=P_{i2}+\tilde{P}_{i1}\cdot2^{-\frac{1}{\tau}},}
+\deqn{\tilde{P}_{ij}=P_{ij}+\tilde{P}_{i,j-1}\cdot2^{-\frac{1}{\tau}} \quad \forall j>2,}
+where \eqn{\tau} denotes the echo in seconds. Leaky integration had been used in Leman (2000) to construct the pitch images of an echoic memory.}
 \usage{LeakyIntegration(inSignal, inSampleFreq, inHalfDecayTime = 0.1,
                  inEnlargement = 0)}
 \arguments{
