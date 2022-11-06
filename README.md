@@ -1,4 +1,4 @@
-# An R package for perception-based auditory and music analysis <img src="man/figure/logo.png" align="right" width="150" />
+# An R package for perception-based auditory and music analysis <img src="man/figure/logo2.png" align="right" width="150" />
 <!--- 
 [![Travis-CI Build Status](https://travis-ci.org/FredHasselman/casnet.svg?branch=master)](https://travis-ci.org/FredHasselman/casnet)
 
